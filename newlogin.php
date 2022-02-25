@@ -3,11 +3,12 @@ require "dbConfig.php";
 $db = new dbConfig();
 $newconnection=mysqli_connect($db->host,$db->username,$db->password,$db->databasename);
 
-$uname = $_POST['username'];
-$pword = $_POST['password'];
 
-if (isset($uname) && isset($pword) && $pword != "" && $uname != "")
+
+if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] != "" && $_POST['password'] != "")
 {
+    $uname = $_POST['username'];
+    $pword = $_POST['password'];
     
     $sql = "select * from employee where username = '" . $uname . "'";
     $result = mysqli_query($newconnection,$sql);
