@@ -8,7 +8,7 @@ $newconnection=mysqli_connect($db->host,$db->username,$db->password,$db->databas
 if (isset($_POST['username']) && isset($_POST['password']) && $_POST['password'] != "" && $_POST['username'] != "")
 {
     $uname = $_POST['username'];
-    $pword = $_POST['password'];
+    $pword = $_POST['password'];    
     
     $sql = "select * from employee where username = '" . $uname . "'";
     $result = mysqli_query($newconnection,$sql);
