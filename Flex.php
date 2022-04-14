@@ -8,7 +8,11 @@ if(isset($_POST['username']) && isset($_POST['start_date'])){
     $uname = $_POST['username'];
     $quantity = $_POST['quantity'];
     $start_date = $_POST['start_date']; 
-    $end_date = $_POST['end_date']; 
+    $end_date = $_POST['end_date'];
+    $start_time = $_POST['start_time'];
+    $end_time = $_POST['end_time'];
+    $msg = $_POST['msg']; 
+
     $value ='0'; 
 
     $sql = "select * from flextabell where username = '" . $uname . "'";
@@ -16,7 +20,7 @@ if(isset($_POST['username']) && isset($_POST['start_date'])){
     $row = mysqli_fetch_assoc($result);
 
     if(mysqli_num_rows($result) == 0){
-        $sql = "INSERT INTO flextabell ( username, quantity, start_date, end_date, start_time, end_time, value) VALUES ( '$uname','$quantity', '$start_date',  '$end_date', '$start_time', '$end_time', '$value')";
+        $sql = "INSERT INTO flextabell ( username, quantity, start_date, end_date, start_time, end_time, msg, value) VALUES ( '$uname','$quantity', '$start_date',  '$end_date', '$start_time', '$end_time', '$value')";
 
         $result = mysqli_query($newconnection,$sql);
         if($result)
