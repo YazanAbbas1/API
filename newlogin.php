@@ -17,10 +17,32 @@ if (isset($_POST['username']) && isset($_POST['password']) && $_POST['password']
     {
         $dbusername = $row['username'];
         $dbpassword = $row['password'];
-        if ($dbusername == $uname && $dbpassword == $pword)
-            echo "Login succeed!";
-        else
-            echo "Wrrong password had been entered! + $dbusername $dbpassword";
+        isValid($uname, $dbusername,$pword,$dbpassword,$row['role']);
     }       
     else echo "Login failed!";
 }else echo "All fields are required";
+function getRole($Role)
+{
+    if($Role=="1")
+        echo "supervisor";
+    
+    else if($Role=="0")
+        echo"employee";
+    else
+        echo "failed to determin the role";
+}
+
+function isValid($username, $uname, $password, $pass,$role)
+{
+    if($pass==$password && $uname!=$username)
+        echo "Wrong username";
+    else if(($pass!=$password) && $uname==$username)
+    echo "Wrong password";
+    else if (($pass!=$password)&& ($uname!=$username))
+        echo"Wrong credentials";
+    else
+        {
+            getRole($role);
+        }
+}
+?>

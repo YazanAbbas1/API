@@ -4,6 +4,7 @@
     $newconnection=mysqli_connect($db->host,$db->username,$db->password,$db->databasename);
     if($_POST['register'])
         {
+            mysqli_set_charset($newconnection,"utf8");
             $uname = $_POST['username'];
             $pword = $_POST['password'];
             $fname = $_POST['firstname'];

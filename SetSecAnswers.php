@@ -2,6 +2,7 @@
  require "dbConfig.php";
  $db = new dbConfig();
  $newconnection=mysqli_connect($db->host,$db->username,$db->password,$db->databasename);
+ mysqli_set_charset($newconnection,"utf8");
  if(isset($_POST['first_question']) && isset($_POST['second_question']) && isset($_POST['third_question']))
  {  $uname = $_POST['username'];
     $q1 = $_POST['first_question'];

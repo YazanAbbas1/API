@@ -7,11 +7,14 @@
         $uname = $_POST['username'];
         $firstname = $_POST['firstname'];
         $secondname = $_POST['secondname'];
-        $sql = "UPDATE employee SET firstname= '".$firstname."',secondname = '".$secondname."' where username = '" . $uname . "'";
+        $email = $_POST['email'];
+        $sql = "UPDATE employee SET firstname= '".$firstname."',secondname = '".$secondname."', email = '".$email."' where username = '" . $uname . "'";
         $result = mysqli_query($newconnection,$sql);
         if($result)
             echo "Data updated";
         else
             echo "failed updating the data";
     }
+    else
+        echo "All fields are required"
 ?>

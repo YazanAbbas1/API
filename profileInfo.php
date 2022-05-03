@@ -2,7 +2,7 @@
     require "dbConfig.php";
     $db = new dbConfig();
     $newconnection=mysqli_connect($db->host,$db->username,$db->password,$db->databasename);
-    
+    mysqli_set_charset($newconnection,"utf8");
     if(isset($_POST['username']))
     {
         $Uname = $_POST['username'];
@@ -10,7 +10,6 @@
         $result = mysqli_query($newconnection,$sql);
         $row = mysqli_fetch_assoc($result);
         $arr = array();
-        
         //use another array to insert the returned data
         // then push it  to the second array to later convert it
         // to JSON file.
